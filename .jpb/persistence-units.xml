@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default" defaultIncludeChangeLogFile="src/main/resources/db/changelog-master.yaml">
+        <packages>
+          <package value="ca.uqtr.inf1013_h22_g5" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>
