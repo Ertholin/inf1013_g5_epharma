@@ -1,6 +1,6 @@
 package ca.uqtr.inf1013_h22_g5.controllers;
 
-import ca.uqtr.inf1013_h22_g5.models.Pharmacien;
+import ca.uqtr.inf1013_h22_g5.model.Pharmacien;
 import ca.uqtr.inf1013_h22_g5.services.PharmacienService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

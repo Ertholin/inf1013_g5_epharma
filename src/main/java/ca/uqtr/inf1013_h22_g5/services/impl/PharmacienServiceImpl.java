@@ -1,6 +1,6 @@
 package ca.uqtr.inf1013_h22_g5.services.impl;
 
-import ca.uqtr.inf1013_h22_g5.models.Pharmacien;
+import ca.uqtr.inf1013_h22_g5.model.Pharmacien;
 import ca.uqtr.inf1013_h22_g5.repository.PharmacienRepository;
 import ca.uqtr.inf1013_h22_g5.services.PharmacienService;
 import lombok.extern.slf4j.Slf4j;

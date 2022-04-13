@@ -1,6 +1,6 @@
 package ca.uqtr.inf1013_h22_g5.services;
 
-import ca.uqtr.inf1013_h22_g5.models.Pharmacien;
+import ca.uqtr.inf1013_h22_g5.model.Pharmacien;
 
 import java.util.List;
 import java.util.Optional;

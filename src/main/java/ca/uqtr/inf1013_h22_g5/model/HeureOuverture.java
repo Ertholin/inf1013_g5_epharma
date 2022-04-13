@@ -1,4 +1,4 @@
-package ca.uqtr.inf1013_h22_g5.models;
+package ca.uqtr.inf1013_h22_g5.model;
 
 public enum HeureOuverture {
     Dimanche,
@@ -7,5 +7,5 @@ public enum HeureOuverture {
     Mercredi,
     Jeudi,
     Vendredi,
-    Samedi
+    Samedi;
 }

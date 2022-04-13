@@ -1,19 +1,21 @@
-package ca.uqtr.inf1013_h22_g5.models;
+package ca.uqtr.inf1013_h22_g5.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name = "pharmacien")
 @Data
-public class Pharmacien {
+@Builder
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class Pharmacien extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private Long id;
     private String nom;
     private String prenom;
     private Date dateNaissance;

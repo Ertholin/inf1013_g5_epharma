@@ -1,21 +1,24 @@
-package ca.uqtr.inf1013_h22_g5.models;
+package ca.uqtr.inf1013_h22_g5.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Generated;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Data
+@Builder
 @Entity
-public class Client {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Client extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private Long id;
     private String nom;
     private String prenom;
+    private String email;
     private Date dateNaissance;
     private String genre;
     private String image;
@@ -24,5 +27,5 @@ public class Client {
     private Adresse adresse;
 
     @OneToMany(mappedBy = "client")
-    private List<Demande> demandes;
+    private List<DemandeClient> demandeClients;
 }

@@ -1,9 +1,11 @@
-package ca.uqtr.inf1013_h22_g5.models;
+package ca.uqtr.inf1013_h22_g5.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
-public class Adresse {
+@Builder
+public class AdresseDTO {
 
     private int numeroCivil;
 
@@ -16,4 +18,5 @@ public class Adresse {
     private String codePostale;
 
     private String pays;
+
 }
