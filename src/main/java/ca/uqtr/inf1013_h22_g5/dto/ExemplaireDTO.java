@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 @Builder
 public class ExemplaireDTO {
 
+    private Integer id;
+
     private Pharmacie pharmacie;
 
     private Medicament medicament;

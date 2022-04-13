@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 @Builder
 public class LigneDemandeClientDTO {
 
+    private Integer id;
+
     private Medicament medicament;
 
     private DemandeClient demandeClient;

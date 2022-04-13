@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 public class MedicamentDTO {
 
+    private Integer id;
 
     private String nom;
 

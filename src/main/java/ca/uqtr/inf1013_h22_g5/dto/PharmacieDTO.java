@@ -12,6 +12,8 @@ import java.util.List;
 @Builder
 public class PharmacieDTO {
 
+    private Integer id;
+
     private String nom;
 
     private String compagnie;

@@ -7,6 +7,8 @@ import lombok.Data;
 @Builder
 public class AdresseDTO {
 
+    private Integer id;
+
     private int numeroCivil;
 
     private String nomRue;

@@ -12,6 +12,8 @@ import java.time.Instant;
 @Builder
 public class MvtStkDTO {
 
+    private Integer id;
+
     private Instant dateMvtStk;
 
     private BigDecimal quantite;

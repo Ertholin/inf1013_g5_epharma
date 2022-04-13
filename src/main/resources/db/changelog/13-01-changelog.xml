@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1649879319333-1" author="bibliotheque (generated)">
+        <createSequence incrementBy="1" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet id="1649879319333-2" author="bibliotheque (generated)">
+        <createTable tableName="client">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_client"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="nom" type="VARCHAR(255)"/>
+            <column name="prenom" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="date_naissance" type="DATETIME"/>
+            <column name="genre" type="VARCHAR(255)"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="numero_civil" type="INT"/>
+            <column name="nom_rue" type="VARCHAR(255)"/>
+            <column name="nom_ville" type="VARCHAR(255)"/>
+            <column name="nom_province" type="VARCHAR(255)"/>
+            <column name="code_postale" type="VARCHAR(255)"/>
+            <column name="pays" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-3" author="bibliotheque (generated)">
+        <createTable tableName="demande_client">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_demandeclient"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="numero" type="BIGINT"/>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="etat" type="INT"/>
+            <column name="sujet" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="reponse" type="VARCHAR(255)"/>
+            <column name="date_demande" type="DATETIME"/>
+            <column name="client_id" type="INT"/>
+            <column name="pharmacie_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-4" author="bibliotheque (generated)">
+        <createTable tableName="exemplaire">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_exemplaire"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="idpharmacie" type="INT"/>
+            <column name="idmedicament" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-5" author="bibliotheque (generated)">
+        <createTable tableName="ligne_demande_client">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_lignedemandeclient"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="idmedicament" type="INT"/>
+            <column name="iddemande_client" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-6" author="bibliotheque (generated)">
+        <createTable tableName="medicament">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_medicament"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="nom" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="marque" type="VARCHAR(255)"/>
+            <column name="format" type="VARCHAR(255)"/>
+            <column name="prix" type="DOUBLE"/>
+            <column name="code_produit" type="VARCHAR(255)"/>
+            <column name="posologie" type="VARCHAR(255)"/>
+            <column name="ingredient" type="VARCHAR(255)"/>
+            <column name="avertissement" type="VARCHAR(255)"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="pharmacie_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-7" author="bibliotheque (generated)">
+        <createTable tableName="mvt_stk">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_mvtstk"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="date_mvt_stk" type="DATETIME"/>
+            <column name="quantite" type="DECIMAL"/>
+            <column name="idmedicament" type="INT"/>
+            <column name="type_mvt_stk" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-8" author="bibliotheque (generated)">
+        <createTable tableName="pharmacie">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_pharmacie"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="nom" type="VARCHAR(255)"/>
+            <column name="compagnie" type="VARCHAR(255)"/>
+            <column name="numero_telephone" type="VARCHAR(255)"/>
+            <column name="heure_ouverture" type="VARCHAR(255)"/>
+            <column name="cote_avis" type="INT"/>
+            <column name="site_web" type="VARCHAR(255)"/>
+            <column name="image" type="BIGINT"/>
+            <column name="pharmacien_id" type="INT"/>
+            <column name="numero_civil" type="INT"/>
+            <column name="nom_rue" type="VARCHAR(255)"/>
+            <column name="nom_ville" type="VARCHAR(255)"/>
+            <column name="nom_province" type="VARCHAR(255)"/>
+            <column name="code_postale" type="VARCHAR(255)"/>
+            <column name="pays" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-9" author="bibliotheque (generated)">
+        <createTable tableName="pharmacien">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_pharmacien"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="nom" type="VARCHAR(255)"/>
+            <column name="prenom" type="VARCHAR(255)"/>
+            <column name="date_naissance" type="DATETIME"/>
+            <column name="genre" type="VARCHAR(255)"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="numero_civil" type="INT"/>
+            <column name="nom_rue" type="VARCHAR(255)"/>
+            <column name="nom_ville" type="VARCHAR(255)"/>
+            <column name="nom_province" type="VARCHAR(255)"/>
+            <column name="code_postale" type="VARCHAR(255)"/>
+            <column name="pays" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-10" author="bibliotheque (generated)">
+        <createTable tableName="roles">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_roles"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="rolename" type="VARCHAR(255)"/>
+            <column name="idutilisateur" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-11" author="bibliotheque (generated)">
+        <createTable tableName="utilisateur">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_utilisateur"/>
+            </column>
+            <column name="creation_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="nom" type="VARCHAR(255)"/>
+            <column name="prenom" type="VARCHAR(255)"/>
+            <column name="mot_depasse" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="photo" type="VARCHAR(255)"/>
+            <column name="date_naissance" type="DATETIME"/>
+            <column name="numero_civil" type="INT"/>
+            <column name="nom_rue" type="VARCHAR(255)"/>
+            <column name="nom_ville" type="VARCHAR(255)"/>
+            <column name="nom_province" type="VARCHAR(255)"/>
+            <column name="code_postale" type="VARCHAR(255)"/>
+            <column name="pays" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649879319333-12" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="demande_client"
+                                 constraintName="FK_DEMANDECLIENT_ON_CLIENT" referencedColumnNames="id"
+                                 referencedTableName="client"/>
+    </changeSet>
+    <changeSet id="1649879319333-13" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="pharmacie_id" baseTableName="demande_client"
+                                 constraintName="FK_DEMANDECLIENT_ON_PHARMACIE" referencedColumnNames="id"
+                                 referencedTableName="pharmacie"/>
+    </changeSet>
+    <changeSet id="1649879319333-14" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="idmedicament" baseTableName="exemplaire"
+                                 constraintName="FK_EXEMPLAIRE_ON_IDMEDICAMENT" referencedColumnNames="id"
+                                 referencedTableName="medicament"/>
+    </changeSet>
+    <changeSet id="1649879319333-15" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="idpharmacie" baseTableName="exemplaire"
+                                 constraintName="FK_EXEMPLAIRE_ON_IDPHARMACIE" referencedColumnNames="id"
+                                 referencedTableName="pharmacie"/>
+    </changeSet>
+    <changeSet id="1649879319333-16" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="iddemande_client" baseTableName="ligne_demande_client"
+                                 constraintName="FK_LIGNEDEMANDECLIENT_ON_IDDEMANDECLIENT" referencedColumnNames="id"
+                                 referencedTableName="demande_client"/>
+    </changeSet>
+    <changeSet id="1649879319333-17" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="idmedicament" baseTableName="ligne_demande_client"
+                                 constraintName="FK_LIGNEDEMANDECLIENT_ON_IDMEDICAMENT" referencedColumnNames="id"
+                                 referencedTableName="medicament"/>
+    </changeSet>
+    <changeSet id="1649879319333-18" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="pharmacie_id" baseTableName="medicament"
+                                 constraintName="FK_MEDICAMENT_ON_PHARMACIE" referencedColumnNames="id"
+                                 referencedTableName="pharmacie"/>
+    </changeSet>
+    <changeSet id="1649879319333-19" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="idmedicament" baseTableName="mvt_stk"
+                                 constraintName="FK_MVTSTK_ON_IDMEDICAMENT" referencedColumnNames="id"
+                                 referencedTableName="medicament"/>
+    </changeSet>
+    <changeSet id="1649879319333-20" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="pharmacien_id" baseTableName="pharmacie"
+                                 constraintName="FK_PHARMACIE_ON_PHARMACIEN" referencedColumnNames="id"
+                                 referencedTableName="pharmacien"/>
+    </changeSet>
+    <changeSet id="1649879319333-21" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="idutilisateur" baseTableName="roles"
+                                 constraintName="FK_ROLES_ON_IDUTILISATEUR" referencedColumnNames="id"
+                                 referencedTableName="utilisateur"/>
+    </changeSet>
+
+</databaseChangeLog>

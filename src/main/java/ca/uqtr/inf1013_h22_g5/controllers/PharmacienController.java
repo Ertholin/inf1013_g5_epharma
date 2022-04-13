@@ -1,5 +1,6 @@
 package ca.uqtr.inf1013_h22_g5.controllers;
 
+import ca.uqtr.inf1013_h22_g5.dto.PharmacienDTO;
 import ca.uqtr.inf1013_h22_g5.model.Pharmacien;
 import ca.uqtr.inf1013_h22_g5.services.PharmacienService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class PharmacienController {
     private PharmacienService pharmacienService;
 
     @PostMapping(value = "/pharmacien/save", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Pharmacien save(@RequestBody Pharmacien pharmacien){
+    public PharmacienDTO save(@RequestBody Pharmacien pharmacien){
         return pharmacienService.save(pharmacien);
     }
 

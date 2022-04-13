@@ -16,6 +16,8 @@ import java.util.List;
 @Builder
 public class DemandeClientDTO {
 
+    private Integer id;
+
     private Long numero;
     private String code;
     private EtatDemande etat;

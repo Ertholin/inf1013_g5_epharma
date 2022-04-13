@@ -9,6 +9,8 @@ import lombok.Data;
 public class RolesDTO {
 
 
+    private Integer id;
+
     private String rolename;
     private Utilisateur utilisateurs;
 

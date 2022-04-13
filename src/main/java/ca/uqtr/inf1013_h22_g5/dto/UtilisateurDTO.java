@@ -4,15 +4,14 @@ import ca.uqtr.inf1013_h22_g5.model.Adresse;
 import ca.uqtr.inf1013_h22_g5.model.Roles;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.Embedded;
-import javax.persistence.OneToMany;
 import java.time.Instant;
 import java.util.List;
 
 @Data
 @Builder
 public class UtilisateurDTO {
+
+    private Integer id;
 
     private String nom;
 
