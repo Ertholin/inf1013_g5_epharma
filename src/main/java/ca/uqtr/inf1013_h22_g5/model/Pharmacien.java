@@ -11,9 +11,9 @@ import java.util.List;
 
 @Data
 @Builder
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Pharmacien extends AbstractEntity{
 
     private String nom;

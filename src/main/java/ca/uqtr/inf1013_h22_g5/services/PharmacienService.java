@@ -8,11 +8,11 @@ import java.util.Optional;
 
 public interface PharmacienService {
 
-    PharmacienDTO save(Pharmacien pharmacien);
+    PharmacienDTO save(PharmacienDTO dto);
 
-    Optional<Pharmacien> findById(Long id);
+    Optional<PharmacienDTO> findById(Integer id);
 
-    List<Pharmacien> findAll();
+    List<PharmacienDTO> findAll();
 
     void delete(Long id);
 

@@ -30,7 +30,7 @@ public class Pharmacie extends AbstractEntity{
 
     private String siteWeb;
 
-    private Long image;
+    private String image;
 
     @ManyToOne
     @JoinColumn
