@@ -11,28 +11,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import static ca.uqtr.inf1013_h22_g5.utils.Constants.APP_ROOT;
+
 @RestController
 public class PharmacienController {
 
     @Autowired
     private PharmacienService pharmacienService;
 
-    @PostMapping(value = "/pharmacien/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = APP_ROOT + "/pharmacien/save", produces = MediaType.APPLICATION_JSON_VALUE)
     public PharmacienDTO save(@RequestBody PharmacienDTO pharmacienDTO){
         return pharmacienService.save(pharmacienDTO);
     }
 
-    @GetMapping(value = "/pharmacien/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = APP_ROOT + "/pharmacien/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<PharmacienDTO> findById(@PathVariable("id") Integer id){
         return pharmacienService.findById(id);
     }
 
-    @GetMapping(value = "/pharmacien/all")
+    @GetMapping(value = APP_ROOT + "/pharmaciens/all")
     public List<PharmacienDTO> findAll(){
         return pharmacienService.findAll();
     }
 
-    @DeleteMapping(value = "/pharmacien/delete/{id}")
+    @DeleteMapping(value = APP_ROOT + "/pharmacien/delete/{id}")
     public void delete(@PathVariable("id") Long id){
         pharmacienService.delete(id);
     }

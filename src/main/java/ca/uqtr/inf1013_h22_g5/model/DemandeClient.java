@@ -13,6 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "demande_client", schema = "public")
 public class DemandeClient extends AbstractEntity{
 
     private Long numero;

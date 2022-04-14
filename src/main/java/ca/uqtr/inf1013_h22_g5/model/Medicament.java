@@ -2,9 +2,7 @@ package ca.uqtr.inf1013_h22_g5.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 
@@ -14,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Table(name = "medicament", schema = "public")
 public class Medicament extends AbstractEntity{
 
     private String nom;
@@ -37,6 +36,7 @@ public class Medicament extends AbstractEntity{
     private String image;
 
     @ManyToOne
+    @JoinColumn(name = "idPharmacie")
     private Pharmacie pharmacie;
 
     @OneToMany(mappedBy = "medicament")

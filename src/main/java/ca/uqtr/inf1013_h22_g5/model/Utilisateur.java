@@ -9,6 +9,7 @@ import javax.management.relation.Role;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.time.Instant;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "utilisateur", schema = "public")
 public class Utilisateur extends AbstractEntity{
 
     private String nom;

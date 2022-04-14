@@ -14,6 +14,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "client", schema = "public")
 public class Client extends AbstractEntity{
 
     private String nom;

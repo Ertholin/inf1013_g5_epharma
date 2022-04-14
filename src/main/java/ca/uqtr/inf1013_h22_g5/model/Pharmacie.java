@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "pharmacie", schema = "public")
 public class Pharmacie extends AbstractEntity{
 
     private String nom;

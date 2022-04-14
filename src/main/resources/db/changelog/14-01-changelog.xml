@@ -5,10 +5,10 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
-    <changeSet id="1649879319333-1" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-1" author="bibliotheque (generated)">
         <createSequence incrementBy="1" sequenceName="hibernate_sequence" startValue="1"/>
     </changeSet>
-    <changeSet id="1649879319333-2" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-2" author="bibliotheque (generated)">
         <createTable tableName="client">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_client"/>
@@ -31,10 +31,10 @@
             <column name="pays" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-3" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-3" author="bibliotheque (generated)">
         <createTable tableName="demande_client">
             <column name="id" type="INT">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_demandeclient"/>
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_demande_client"/>
             </column>
             <column name="creation_date" type="DATETIME">
                 <constraints nullable="false"/>
@@ -51,7 +51,7 @@
             <column name="pharmacie_id" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-4" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-4" author="bibliotheque (generated)">
         <createTable tableName="exemplaire">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_exemplaire"/>
@@ -64,10 +64,10 @@
             <column name="idmedicament" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-5" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-5" author="bibliotheque (generated)">
         <createTable tableName="ligne_demande_client">
             <column name="id" type="INT">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_lignedemandeclient"/>
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_ligne_demande_client"/>
             </column>
             <column name="creation_date" type="DATETIME">
                 <constraints nullable="false"/>
@@ -77,7 +77,7 @@
             <column name="iddemande_client" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-6" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-6" author="bibliotheque (generated)">
         <createTable tableName="medicament">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_medicament"/>
@@ -96,11 +96,11 @@
             <column name="ingredient" type="VARCHAR(255)"/>
             <column name="avertissement" type="VARCHAR(255)"/>
             <column name="image" type="VARCHAR(255)"/>
-            <column name="pharmacie_id" type="INT"/>
+            <column name="id_pharmacie" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-7" author="bibliotheque (generated)">
-        <createTable tableName="mvt_stk">
+    <changeSet id="1649958297343-7" author="bibliotheque (generated)">
+        <createTable tableName="mvtstk">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_mvtstk"/>
             </column>
@@ -114,7 +114,7 @@
             <column name="type_mvt_stk" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-8" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-8" author="bibliotheque (generated)">
         <createTable tableName="pharmacie">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_pharmacie"/>
@@ -129,7 +129,7 @@
             <column name="heure_ouverture" type="VARCHAR(255)"/>
             <column name="cote_avis" type="INT"/>
             <column name="site_web" type="VARCHAR(255)"/>
-            <column name="image" type="BIGINT"/>
+            <column name="image" type="VARCHAR(255)"/>
             <column name="pharmacien_id" type="INT"/>
             <column name="numero_civil" type="INT"/>
             <column name="nom_rue" type="VARCHAR(255)"/>
@@ -139,7 +139,7 @@
             <column name="pays" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-9" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-9" author="bibliotheque (generated)">
         <createTable tableName="pharmacien">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_pharmacien"/>
@@ -161,7 +161,7 @@
             <column name="pays" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-10" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-10" author="bibliotheque (generated)">
         <createTable tableName="roles">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_roles"/>
@@ -174,7 +174,7 @@
             <column name="idutilisateur" type="INT"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-11" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-11" author="bibliotheque (generated)">
         <createTable tableName="utilisateur">
             <column name="id" type="INT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_utilisateur"/>
@@ -197,55 +197,55 @@
             <column name="pays" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet id="1649879319333-12" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-12" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="demande_client"
-                                 constraintName="FK_DEMANDECLIENT_ON_CLIENT" referencedColumnNames="id"
-                                 referencedTableName="client"/>
+                                 constraintName="FK_DEMANDE_CLIENT_ON_CLIENT" referencedColumnNames="id"
+                                 referencedTableName="client" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-13" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-13" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="pharmacie_id" baseTableName="demande_client"
-                                 constraintName="FK_DEMANDECLIENT_ON_PHARMACIE" referencedColumnNames="id"
-                                 referencedTableName="pharmacie"/>
+                                 constraintName="FK_DEMANDE_CLIENT_ON_PHARMACIE" referencedColumnNames="id"
+                                 referencedTableName="pharmacie" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-14" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-14" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="idmedicament" baseTableName="exemplaire"
                                  constraintName="FK_EXEMPLAIRE_ON_IDMEDICAMENT" referencedColumnNames="id"
-                                 referencedTableName="medicament"/>
+                                 referencedTableName="medicament" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-15" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-15" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="idpharmacie" baseTableName="exemplaire"
                                  constraintName="FK_EXEMPLAIRE_ON_IDPHARMACIE" referencedColumnNames="id"
-                                 referencedTableName="pharmacie"/>
+                                 referencedTableName="pharmacie" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-16" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-16" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="iddemande_client" baseTableName="ligne_demande_client"
-                                 constraintName="FK_LIGNEDEMANDECLIENT_ON_IDDEMANDECLIENT" referencedColumnNames="id"
-                                 referencedTableName="demande_client"/>
+                                 constraintName="FK_LIGNE_DEMANDE_CLIENT_ON_IDDEMANDECLIENT" referencedColumnNames="id"
+                                 referencedTableName="demande_client" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-17" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-17" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="idmedicament" baseTableName="ligne_demande_client"
-                                 constraintName="FK_LIGNEDEMANDECLIENT_ON_IDMEDICAMENT" referencedColumnNames="id"
-                                 referencedTableName="medicament"/>
+                                 constraintName="FK_LIGNE_DEMANDE_CLIENT_ON_IDMEDICAMENT" referencedColumnNames="id"
+                                 referencedTableName="medicament" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-18" author="bibliotheque (generated)">
-        <addForeignKeyConstraint baseColumnNames="pharmacie_id" baseTableName="medicament"
-                                 constraintName="FK_MEDICAMENT_ON_PHARMACIE" referencedColumnNames="id"
-                                 referencedTableName="pharmacie"/>
+    <changeSet id="1649958297343-18" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="id_pharmacie" baseTableName="medicament"
+                                 constraintName="FK_MEDICAMENT_ON_IDPHARMACIE" referencedColumnNames="id"
+                                 referencedTableName="pharmacie" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-19" author="bibliotheque (generated)">
-        <addForeignKeyConstraint baseColumnNames="idmedicament" baseTableName="mvt_stk"
+    <changeSet id="1649958297343-19" author="bibliotheque (generated)">
+        <addForeignKeyConstraint baseColumnNames="idmedicament" baseTableName="mvtstk"
                                  constraintName="FK_MVTSTK_ON_IDMEDICAMENT" referencedColumnNames="id"
-                                 referencedTableName="medicament"/>
+                                 referencedTableName="medicament" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-20" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-20" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="pharmacien_id" baseTableName="pharmacie"
                                  constraintName="FK_PHARMACIE_ON_PHARMACIEN" referencedColumnNames="id"
-                                 referencedTableName="pharmacien"/>
+                                 referencedTableName="pharmacien" referencedTableSchemaName="public"/>
     </changeSet>
-    <changeSet id="1649879319333-21" author="bibliotheque (generated)">
+    <changeSet id="1649958297343-21" author="bibliotheque (generated)">
         <addForeignKeyConstraint baseColumnNames="idutilisateur" baseTableName="roles"
                                  constraintName="FK_ROLES_ON_IDUTILISATEUR" referencedColumnNames="id"
-                                 referencedTableName="utilisateur"/>
+                                 referencedTableName="utilisateur" referencedTableSchemaName="public"/>
     </changeSet>
 
 </databaseChangeLog>
