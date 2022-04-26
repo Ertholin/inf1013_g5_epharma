@@ -1,6 +1,9 @@
 package ca.uqtr.inf1013_h22_g5.services.impl;
 
 import ca.uqtr.inf1013_h22_g5.dto.UtilisateurDTO;
+import ca.uqtr.inf1013_h22_g5.exception.EntityNotFoundException;
+import ca.uqtr.inf1013_h22_g5.exception.ErrorCodes;
+import ca.uqtr.inf1013_h22_g5.model.Utilisateur;
 import ca.uqtr.inf1013_h22_g5.repository.UtilisateurRepository;
 import ca.uqtr.inf1013_h22_g5.services.UtilisateurService;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +18,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UtilisateurServiceImpl implements UtilisateurService {
 
-    private UtilisateurRepository utilisateurRepository;
+   private UtilisateurRepository utilisateurRepository;
 
     @Autowired
     public UtilisateurServiceImpl(UtilisateurRepository utilisateurRepository) {
@@ -36,9 +39,19 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                 .map(UtilisateurDTO::fromEntity);
     }
 
+//    @Override
+//    public Optional<Utilisateur> findUtilisateurByEmail(String email) {
+//        return utilisateurRepository.findUtilisateurByEmail(email);
+//    }
+
     @Override
-    public Optional<UtilisateurDTO> findByEmail(String email) {
-        return utilisateurRepository.findUtilisateurByEmail(email);
+    public UtilisateurDTO findByEmail(String email) {
+        return utilisateurRepository.findUtilisateurByEmail(email)
+                .map(UtilisateurDTO::fromEntity)
+                .orElseThrow(()-> new EntityNotFoundException(
+                        "Aucun utilisateur avec l'email " + email + " n'a ete trouve",
+                        ErrorCodes.UTILISATEUR_NOT_FOUND
+                ));
     }
 
     @Override
@@ -47,6 +60,8 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                 .stream().map(UtilisateurDTO::fromEntity)
                 .collect(Collectors.toList());
     }
+
+
 
     @Override
     public void delete(Integer id) {

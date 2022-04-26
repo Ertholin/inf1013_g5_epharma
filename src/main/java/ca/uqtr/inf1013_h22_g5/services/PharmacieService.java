@@ -15,5 +15,4 @@ public interface PharmacieService {
 
     void delete(Integer id);
 
-
 }

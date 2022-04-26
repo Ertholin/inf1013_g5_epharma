@@ -16,6 +16,7 @@ public class UtilisateurDTO {
     private String nom;
     private String prenom;
     private String email;
+    private String motDePasse;
     private String photo;
     private Instant dateNaissance;
     private Adresse adresse;
@@ -30,6 +31,7 @@ public class UtilisateurDTO {
                 .nom(utilisateur.getNom())
                 .prenom(utilisateur.getPrenom())
                 .email(utilisateur.getEmail())
+                .motDePasse(utilisateur.getMotDepasse())
                 .photo(utilisateur.getPhoto())
                 .dateNaissance(utilisateur.getDateNaissance())
                 .build();
@@ -44,6 +46,7 @@ public class UtilisateurDTO {
         utilisateur.setNom(utilisateurDTO.getNom());
         utilisateur.setPrenom(utilisateurDTO.getPrenom());
         utilisateur.setEmail(utilisateurDTO.getEmail());
+        utilisateur.setMotDepasse(utilisateur.getMotDepasse());
         utilisateur.setPhoto(utilisateurDTO.getPhoto());
         utilisateur.setDateNaissance(utilisateurDTO.getDateNaissance());
 
